@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Journey With Eda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        /* Sidebar */
+        .sidebar {
+            width: 20%;
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100vh;
+        }
+        .sidebar button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            background: white;
+            color: #4CAF50;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .sidebar button:hover {
+            background: #45a049;
+            color: white;
+        }
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        /* Language Switcher */
+        .language-switcher {
+            margin: 20px 0;
+        }
+        .language-switcher button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .language-switcher button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button id="btn-eat">Where to eat in Rome?</button>
+        <button id="btn-see">Where to see in Rome?</button>
+        <button id="btn-do">What to do in Rome?</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Journey With Eda</h1>
+            <p id="welcome-text">Your go-to travel blog for stories, tips, and adventures!</p>
+        </header>
+
+        <div class="language-switcher">
+            <button onclick="switchLanguage('en')">English</button>
+            <button onclick="switchLanguage('tr')">Türkçe</button>
+            <button onclick="switchLanguage('it')">Italiano</button>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                welcome: "Your go-to travel blog for stories, tips, and adventures!",
+                eat: "Where to eat in Rome?",
+                see: "Where to see in Rome?",
+                do: "What to do in Rome?"
+            },
+            tr: {
+                welcome: "Hikayeler, ipuçlarý ve maceralar için baþvuru seyahat blogunuz!",
+                eat: "Roma'da nerede yemek yenir?",
+                see: "Roma'da nereler görülmeli?",
+                do: "Roma'da ne yapýlýr?"
+            },
+            it: {
+                welcome: "Il tuo blog di viaggi per storie, consigli e avventure!",
+                eat: "Dove mangiare a Roma?",
+                see: "Cosa vedere a Roma?",
+                do: "Cosa fare a Roma?"
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.getElementById("welcome-text").textContent = translations[lang].welcome;
+            document.getElementById("btn-eat").textContent = translations[lang].eat;
+            document.getElementById("btn-see").textContent = translations[lang].see;
+            document.getElementById("btn-do").textContent = translations[lang].do;
+        }
+
+        // Default Language
+        switchLanguage('en');
+    </script>
+</body>
+</html>
